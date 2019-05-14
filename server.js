@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const books = require("./routes/api/bookRoutes");
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -23,7 +21,9 @@ connection
   .catch(err => console.log(err));
 
 // Use routes
-app.use("/api/books", books);
+const routes = require("./routes");
+
+app.use(routes);
 
 const PORT = process.env.PORT || 3001;
 

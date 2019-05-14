@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Home from "./components/pages/Home";
 import Search from "./components/pages/Search";
 import Saved from "./components/pages/Saved";
+import API from "./utils/API";
 import "./App.css";
 
 /* const APIkey = "AIzaSyDW6weTjEKjfBWH8WvjmTsfvvNfxYKldqY"; */
@@ -30,6 +31,10 @@ class App extends Component {
     if (this.state.search.length) {
       var searchedFor = this.state.search;
       console.log("Submitted: " + searchedFor);
+      API.getBooks(searchedFor)
+        .then(res => this.setState({ savedbooks: res.data }))
+        .catch(err => console.log(err));
+      console.log(this.state.savedBooks);
       document.getElementById("search-bar-z").reset();
       this.setState({ search: "" });
     }
