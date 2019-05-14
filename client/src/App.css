@@ -1,0 +1,26 @@
+.body-container {
+  margin: auto;
+  background-color: white;
+  opacity: 0.9;
+  margin-top: 2em;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.body-title {
+  font-size: 2em;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.body-text {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#search-bar-z {
+  text-align: center;
+  margin: auto;
+  padding: 1em;
+  margin-bottom: 1em;
+}

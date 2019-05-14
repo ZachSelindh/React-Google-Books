@@ -1,0 +1,35 @@
+.page-header {
+  background-color: white;
+  opacity: 0.9;
+  border-bottom: 3px solid black;
+}
+
+#page-row {
+  width: 100%;
+}
+
+#header-title {
+  font-size: 2em;
+  margin-left: 2em;
+}
+
+#nav-link-bar {
+  white-space: nowrap;
+}
+
+#nav-link-bar span {
+  display: inline;
+  margin-left: 1em;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+#page-row a {
+  color: black;
+}
+
+#nav-link-bar a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: black;
+}

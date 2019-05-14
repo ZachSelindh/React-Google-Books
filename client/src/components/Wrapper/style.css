@@ -1,0 +1,13 @@
+body {
+  background: url("https://lidenz.ru/wp-content/uploads/2015/04/376152628_249e3630c0_o.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Playfair Display", serif;
+}
+
+.wrapper {
+  max-width: 100%;
+}

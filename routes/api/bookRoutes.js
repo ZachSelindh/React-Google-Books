@@ -6,7 +6,7 @@ const Book = require("../../models/Book");
 
 // @route   GET api/books
 // @desc    Get all Books
-// @acess   Public
+// @access   Public
 router.get("/", (req, res) => {
   Book.find({})
     // possible sort area
@@ -15,11 +15,14 @@ router.get("/", (req, res) => {
 
 // @route   POST api/books
 // @desc    Create a Book
-// @acess   Public
+// @access   Public
 router.post("/", (req, res) => {
   const newBook = new Book({
     title: req.body.title,
-    author: req.body.author
+    author: req.body.author,
+    description: req.body.description,
+    imageURL: req.body.imageURL,
+    link: req.body.link
   });
 
   newBook.save().then(book => res.json(book));
@@ -27,7 +30,7 @@ router.post("/", (req, res) => {
 
 // @route   POST api/books
 // @desc    Delete a Book
-// @acess   Public
+// @access   Public
 router.delete("/:id", (req, res) => {
   Book.findById(req.params.id)
     .then(book => book.remove().then(() => res.json({ Sucess: true })))
