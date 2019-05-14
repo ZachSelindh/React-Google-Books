@@ -9,21 +9,23 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Use routes
+const routes = require("./routes");
+
+app.use(routes);
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-}
+} /* else {
+  app.use(express.static())
+} */
 
 const connection = require("./config/connection");
 
 connection
   .then(() => console.log("Database connected"))
   .catch(err => console.log(err));
-
-// Use routes
-const routes = require("./routes");
-
-app.use(routes);
 
 const PORT = process.env.PORT || 3001;
 

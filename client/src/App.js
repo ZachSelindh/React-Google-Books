@@ -31,7 +31,7 @@ class App extends Component {
     if (this.state.search.length) {
       var searchedFor = this.state.search;
       console.log("Submitted: " + searchedFor);
-      API.getBooks(searchedFor)
+      API.getBooksFromAPI(searchedFor)
         .then(res => this.setState({ savedbooks: res.data }))
         .catch(err => console.log(err));
       console.log(this.state.savedBooks);
