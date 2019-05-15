@@ -3,7 +3,12 @@ import axios from "axios";
 export default {
   // Gets all books
   getBooksFromAPI: function(search) {
-    return axios.get("/api/google/", { params: { q: "title:" + search } });
+    return axios.get("/api/google/", {
+      params: {
+        q: "title:" + search,
+        key: "AIzaSyDW6weTjEKjfBWH8WvjmTsfvvNfxYKldqY"
+      }
+    });
   },
   // Gets the book with the given id
   getBook: function(id) {

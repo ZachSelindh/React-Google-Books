@@ -2,13 +2,10 @@ const axios = require("axios");
 
 module.exports = {
   findBooks: function(req, res) {
-    console.log("Controller Called");
     var { query: params } = req;
     axios
-      .get("https://www.googleapis.com/books/v1/volumes", {
-        params
-      })
-      .then(results =>
+      .get("https://www.googleapis.com/books/v1/volumes?", { params })
+      /* .then(results =>
         results.data.items.filter(
           result =>
             result.volumeInfo.title &&
@@ -18,8 +15,9 @@ module.exports = {
             result.volumeInfo.imageLinks &&
             result.volumeInfo.imageLinks.thumbnail
         )
-      )
-      .then(books => res.json(books))
-      .catch(err => res.status(422).json(err));
+      ) */
+      /* .then(response => console.log(response.data.items)) */
+      .then(response => res.json(response.data.items))
+      .catch(err => console.log(err));
   }
 };

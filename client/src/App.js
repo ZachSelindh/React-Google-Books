@@ -8,8 +8,6 @@ import Saved from "./components/pages/Saved";
 import API from "./utils/API";
 import "./App.css";
 
-/* const APIkey = "AIzaSyDW6weTjEKjfBWH8WvjmTsfvvNfxYKldqY"; */
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,19 +28,15 @@ class App extends Component {
     event.preventDefault();
     if (this.state.search.length) {
       var searchedFor = this.state.search;
-      console.log("Submitted: " + searchedFor);
       API.getBooksFromAPI(searchedFor)
         .then(res => this.setState({ savedbooks: res.data }))
         .catch(err => console.log(err));
-      console.log(this.state.savedBooks);
       document.getElementById("search-bar-z").reset();
       this.setState({ search: "" });
     }
   };
 
-  componentDidMount = () => {
-    console.log(this.state);
-  };
+  componentDidMount = () => {};
 
   render() {
     return (
