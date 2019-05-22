@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import update from "react-addons-update";
 import API from "../../utils/API";
 import Bookitem from "../Book";
 
@@ -61,7 +60,7 @@ class Search extends Component {
               <Bookitem
                 key={Book.id}
                 title={Book.volumeInfo.title}
-                author={Book.volumeInfo.authors}
+                author={Book.volumeInfo.authors[0]}
                 description={Book.volumeInfo.description}
                 imageURL={Book.volumeInfo.imageLinks.thumbnail}
                 link={Book.volumeInfo.infoLink}
@@ -69,7 +68,7 @@ class Search extends Component {
             );
           })
         ) : (
-          <h3>No Results to Display</h3>
+          <h3 id="no-result-text">No Results to Display</h3>
         )}
       </div>
     );

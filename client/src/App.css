@@ -1,7 +1,7 @@
 .body-container {
+  opacity: 0.9;
   margin: auto;
   background-color: white;
-  opacity: 0.9;
   margin-top: 2em;
   border: 2px solid black;
   border-radius: 5px;
@@ -18,9 +18,23 @@
   text-align: center;
 }
 
+#no-result-text {
+  padding: 1em;
+  text-align: center;
+}
+
 #search-bar-z {
   text-align: center;
   margin: auto;
   padding: 1em;
   margin-bottom: 1em;
+}
+
+#book-render-area {
+  margin: auto;
+  background-color: white;
+  opacity: 0.9;
+  margin-top: 2em;
+  border: 2px solid black;
+  border-radius: 5px;
 }
