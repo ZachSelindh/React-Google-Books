@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FavButton from "../FavButton";
+import ReadMoreButton from "../ReadMoreButton";
 import "./style.css";
 
 class Book extends Component {
@@ -22,10 +23,8 @@ class Book extends Component {
           ) : (
             <p id="book-desc">No Description Found</p>
           )}
-          <a href={this.props.link} target="blank">
-            <button className="btn btn-primary"> Read More </button>
-          </a>
-          <FavButton />
+          <ReadMoreButton {...this.props} />
+          <FavButton {...this.props} />
         </div>
       </div>
     );

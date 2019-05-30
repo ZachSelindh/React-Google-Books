@@ -18,14 +18,18 @@ router.get("/", (req, res) => {
 // @access   Public
 router.post("/", (req, res) => {
   const newBook = new Book({
+    googleID: req.body.googleID,
     title: req.body.title,
     author: req.body.author,
     description: req.body.description,
     imageURL: req.body.imageURL,
     link: req.body.link
   });
-
-  newBook.save().then(book => res.json(book));
+  newBook
+    .save()
+    .then(console.log(newBook))
+    .then(book => res.json(book))
+    .catch(err => console.log(err));
 });
 
 // @route   POST api/books

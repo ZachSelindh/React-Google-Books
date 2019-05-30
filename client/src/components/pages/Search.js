@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Bookitem from "../Book";
+import BookComp from "../Book";
 
 class Search extends Component {
   constructor() {
@@ -28,7 +28,6 @@ class Search extends Component {
             foundBooks: res.data
           })
         )
-        .then(() => console.log(this.state.foundBooks))
         .catch(err => console.log(err));
       document.getElementById("search-bar-z").reset();
       this.setState({ search: "" });
@@ -57,8 +56,9 @@ class Search extends Component {
         {this.state.foundBooks.length ? (
           this.state.foundBooks.map(Book => {
             return (
-              <Bookitem
+              <BookComp
                 key={Book.id}
+                googleID={Book.id}
                 title={Book.volumeInfo.title}
                 author={Book.volumeInfo.authors[0]}
                 description={Book.volumeInfo.description}
