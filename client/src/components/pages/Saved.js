@@ -10,16 +10,34 @@ class Saved extends Component {
     };
   }
 
-  /* componentDidMount = () => {
-    API.
-  } */
+  componentDidMount = () => {
+    API.getBooksFromDB()
+      .then(res => this.setState({ savedBooks: res.data }))
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
       <div>
         <h1 className="body-title">Saved Books</h1>
-        <p className="body-text">Here is where found books will appear.</p>
-        <br />
+        {this.state.savedBooks.length ? (
+          this.state.savedBooks.map(Book => {
+            return (
+              <BookComp
+                key={Book.googleID}
+                googleID={Book.id}
+                title={Book.title}
+                author={Book.author}
+                description={Book.description}
+                imageURL={Book.imageURL}
+                link={Book.link}
+                favorited={Book.favorited}
+              />
+            );
+          })
+        ) : (
+          <h3 id="no-result-text">No Favorites Saved</h3>
+        )}
       </div>
     );
   }

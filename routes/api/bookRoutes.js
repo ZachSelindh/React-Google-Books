@@ -10,7 +10,7 @@ const Book = require("../../models/Book");
 router.get("/", (req, res) => {
   Book.find({})
     // possible sort area
-    .then(books => res.json(books));
+    .then(books => res.send(books));
 });
 
 // @route   POST api/books

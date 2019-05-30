@@ -60,7 +60,7 @@ class Search extends Component {
                 key={Book.id}
                 googleID={Book.id}
                 title={Book.volumeInfo.title}
-                author={Book.volumeInfo.authors[0]}
+                author={Book.volumeInfo.authors}
                 description={Book.volumeInfo.description}
                 imageURL={Book.volumeInfo.imageLinks.thumbnail}
                 link={Book.volumeInfo.infoLink}
