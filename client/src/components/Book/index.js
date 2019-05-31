@@ -29,12 +29,14 @@ class Book extends Component {
           ) : (
             <p id="book-desc">No Description Found</p>
           )}
-          <ReadMoreButton {...this.props} />
-          {this.props.favorited ? (
-            <UnFavButton {...this.props} />
-          ) : (
-            <FavButton {...this.props} />
-          )}
+          <div className="row">
+            <ReadMoreButton {...this.props} />
+            {this.props.favorited ? (
+              <UnFavButton {...this.props} />
+            ) : (
+              <FavButton {...this.props} />
+            )}
+          </div>
         </div>
       </div>
     );

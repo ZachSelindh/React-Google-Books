@@ -6,7 +6,6 @@ class UnFavButton extends Component {
   handleClick = () => {
     return function() {
       API.deleteBook(this.props.mongoID)
-        .then(res => console.log(res))
         .then(() => this.props.loadBooks())
         .catch(err => console.log(err));
     };
