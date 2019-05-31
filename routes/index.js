@@ -8,9 +8,6 @@ router.use("/api", apiRoutes);
 // Send React start point if no API routes are called.
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-
-  // Temporary route before build
-  /* res.sendFile(path.join(__dirname, "../client/public/index.html")); */
 });
 
 module.exports = router;
