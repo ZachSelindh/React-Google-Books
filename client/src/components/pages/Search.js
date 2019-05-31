@@ -64,6 +64,7 @@ class Search extends Component {
                 description={Book.volumeInfo.description}
                 imageURL={Book.volumeInfo.imageLinks.thumbnail}
                 link={Book.volumeInfo.infoLink}
+                favorited={false}
               />
             );
           })

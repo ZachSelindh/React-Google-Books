@@ -10,10 +10,14 @@ class Saved extends Component {
     };
   }
 
-  componentDidMount = () => {
+  loadBooks = () => {
     API.getBooksFromDB()
       .then(res => this.setState({ savedBooks: res.data }))
       .catch(err => console.log(err));
+  };
+
+  componentDidMount = () => {
+    this.loadBooks();
   };
 
   render() {
@@ -24,14 +28,16 @@ class Saved extends Component {
           this.state.savedBooks.map(Book => {
             return (
               <BookComp
-                key={Book.googleID}
-                googleID={Book.id}
+                key={Book._id}
+                googleID={Book.googleID}
+                mongoID={Book._id}
                 title={Book.title}
                 author={Book.author}
                 description={Book.description}
                 imageURL={Book.imageURL}
                 link={Book.link}
                 favorited={Book.favorited}
+                loadBooks={this.loadBooks()}
               />
             );
           })

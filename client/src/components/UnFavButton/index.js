@@ -5,17 +5,10 @@ import "./style.css";
 class UnFavButton extends Component {
   handleClick = () => {
     return function() {
-      /* API.saveBook({
-        googleID: this.props.googleID,
-        title: this.props.title,
-        author: this.props.author,
-        description: this.props.description,
-        imageURL: this.props.imageURL,
-        link: this.props.link,
-        favorited: true
-      })
-        .then(console.log(`${this.props.title} saved as a favorite!`))
-        .catch(err => console.log(err)); */
+      API.deleteBook(this.props.mongoID)
+        .then(res => console.log(res))
+        .then(() => this.props.loadBooks())
+        .catch(err => console.log(err));
     };
   };
 

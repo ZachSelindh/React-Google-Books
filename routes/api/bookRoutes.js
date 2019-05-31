@@ -36,9 +36,10 @@ router.post("/", (req, res) => {
 // @desc    Delete a Book
 // @access   Public
 router.delete("/:id", (req, res) => {
-  Book.findById(req.params.id)
-    .then(book => book.remove().then(() => res.json({ Sucess: true })))
-    .catch(err => console.log(err));
+  console.log(req.params.id);
+  Book.findById({ _id: req.params.id })
+    .then(book => book.remove())
+    .catch(err => res.status(422).json(err));
 });
 
 module.exports = router;
