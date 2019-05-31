@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "client", "build")));
+
 // Use routes
 const routes = require("./routes");
 
 app.use(routes);
-
-app.use(express.static(path.join(__dirname, "client", "build")));
 
 const connection = require("./config/connection");
 
