@@ -21,13 +21,14 @@ class Search extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.search.length) {
-      var searchedFor = this.state.search;
+      var searchedFor = this.state.search.split(" ").join("+");
       API.getBooksFromAPI(searchedFor)
-        .then(res =>
+        .then(response =>
           this.setState({
-            foundBooks: res.data
+            foundBooks: response.data
           })
         )
+        /* .then(response => console.log(response.data)) */
         .catch(err => console.log(err));
       document.getElementById("search-bar-z").reset();
       this.setState({ search: "" });
@@ -62,7 +63,11 @@ class Search extends Component {
                 title={Book.volumeInfo.title}
                 author={Book.volumeInfo.authors}
                 description={Book.volumeInfo.description}
-                imageURL={Book.volumeInfo.imageLinks.thumbnail}
+                imageURL={
+                  Book.volumeInfo.imageLinks !== undefined
+                    ? Book.volumeInfo.imageLinks.thumbnail
+                    : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+                }
                 link={Book.volumeInfo.infoLink}
                 favorited={false}
               />
